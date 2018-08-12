@@ -1,0 +1,34 @@
+plugins {
+//    id 'com.github.spotbugs' version '1.6.2'
+    id "com.github.ben-manes.versions" version '0.20.0'
+}
+apply plugin: 'groovy'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repository.jboss.org/nexus/content/groups/m2-release-proxy/' }
+    maven { url 'https://oss.jfrog.org/oss-snapshot-local/' }
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+
+    compile "org.apache.lucene:lucene-core:$luceneVersion"
+    compile "org.apache.lucene:lucene-analyzers-common:$luceneVersion"
+    compile "org.apache.lucene:lucene-queryparser:$luceneVersion"
+    compile "org.eclipse:osgi:$eclipseOsgiVersion"
+    compile("commons-httpclient:commons-httpclient:$commonsHttpClientVersion") {
+        exclude(module: 'junit')
+        exclude(module: 'commons-logging')
+        exclude(module: 'commons-codec')
+    }
+    runtime("openejb:openejb-loader:$openejbVersion") {
+        exclude(module: 'log4j')
+        exclude(module: 'openejb-core')
+        exclude(module: 'geronimo-jta_1.0.1B_spec')
+        exclude(module: 'geronimo-servlet_2.4_spec')
+        exclude(module: 'geronimo-ejb_2.1_spec')
+        exclude(module: 'geronimo-j2ee-connector_1.5_spec')
+    }
+}
