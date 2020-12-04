@@ -29,8 +29,8 @@ println "Please input 3 of the 4 values in your mortgage calculation"
 println "This program will then calculate the value you leave blank"
 println ""
 
-def variables = [
-    "Amount of mortgage" : 0.0, 
+variables = [
+    "Amount of mortgage" : 0.0,
     "Annual interest rate (%)" : 0.0, 
     "Loan duration (months)" : 0.0, 
     "Monthly payments" : 0.0
@@ -38,7 +38,7 @@ def variables = [
 
 for (entry in variables.entrySet()) {
     print("${entry.key}:")
-    def userInput = System.in.readLine()
+    def userInput = System.console().readLine()
     if ("" == userInput) {
         valueToCalculate = entry.key
     } else {
@@ -47,10 +47,6 @@ for (entry in variables.entrySet()) {
 }
 
 println "$valueToCalculate = ${calculateValueOf(valueToCalculate)}"
-
-
-
-
 
 def calculateValueOf(valueToCalculate) {
     def result = 0

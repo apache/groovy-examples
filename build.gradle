@@ -66,5 +66,6 @@ rat {
                  '**/build/**',
                  'out/**', '*.ipr',  '**/*.iml', '*.iws', // Intellij files
                  '.classpath', '.project', '.settings/**', 'bin/**', // Eclipse files
+                 '**/*.log', '.idea/**'
     ]
 }
