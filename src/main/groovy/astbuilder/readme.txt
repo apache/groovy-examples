@@ -7,7 +7,7 @@
      "License"); you may not use this file except in compliance
      with the License.  You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+       <a href="http://www.apache.org/licenses/LICENSE-2.0"/>
 
      Unless required by applicable law or agreed to in writing,
      software distributed under the License is distributed on an
@@ -17,13 +17,21 @@
      under the License.
 ====
 
-AstBuilder and AST Transformation Example
+# AstBuilder and AST Transformation Example
 
 This example shows how to use the AstBuilder to add a public static void main(String[]) 
 method to a class. 
 
-The example requires ant in your path and the Groovy 1.7 (or greater) 
-Jar in your classpath. 
+The example requires ant in your path and the Groovy 1.7 (or greater)
+installed on your system. 
+
+Prior to running, __build.xml__ needs to be configured to reference the 
+installed version of groovy. The following must be done:
+
+1) Set _groovy.version_ to the version of groovy installed.
+2) Update _groovy.home_ to point to the location where groovy is installed.
+
+Once these updates are made and saved, the build file is ready to use.
 
 To build the example run "ant" from the current directory. The default 
 target will compile the classes needed. The last step of the build 

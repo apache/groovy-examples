@@ -7,53 +7,18 @@ This is a repository of example Groovy projects.  Each consisting of source file
 that (at some point) have been frequently used with Groovy. It is expected that all the example source
 files will at least compile with the current version of Groovy.
 
-<table>
-  <thead><tr><th>Project</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr>
-      <td><a href="astbuilder/">AST Builder</a></td>
-      <td>Example showing how to use the AstBuilder to add a public static 
-void main(String[]) method to a class </td>
-    </tr>
-    <tr>
-      <td><a href="commandLineTools/">Command Line Tools</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="console/">Console</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="groovy2d/">Groovy 2d</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="injector/">Injector</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="osgi/">OSGi</a></td>
-      <td>Example code illustrating two different usages of <a 
-href="http://www.osgi.org/">OSGi</a> and Groovy</td>
-    </tr>
-    <tr>
-      <td><a href="searchEngine/">Search Engine</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="swing/">Swing</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="transforms/">Transforms</a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="webapps/">Web Apps</a></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+Project   |  Description
+--------- | ------------
+[AST Builder](src/main/groovy/astbuilder) | Example showing how to use the AstBuilder to add a public static void main(String[]) method to a class
+[Command Line Tools](src/main/groovy/commandLineTools) | 
+[Console](src/main/groovy/console) |
+[Groovy 2d](src/main/groovy/groovy2d) |
+[Injector](src/main/groovy/org/codehaus/groovy/grails/compiler/injection) | 
+[OSGi](src/main/groovy/osgi) | Sample code illustrating two different usages of [OSGi](http://www.osgi.org/) and Groovy
+[Search Engine](src/main/groovy/searchEngine) |
+[Swing](src/main/groovy/swing) |
+[Transforms](src/main/groovy/transforms) |
+[Web Apps](src/main/groovy/webapps) |
 
 ## License
 
