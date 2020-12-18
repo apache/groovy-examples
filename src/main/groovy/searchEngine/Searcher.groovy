@@ -16,6 +16,8 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
+package searchEngine
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.queryparser.classic.QueryParser
 import org.apache.lucene.search.IndexSearcher
@@ -30,12 +32,10 @@ import org.apache.lucene.index.DirectoryReader
  * based on examples in the wonderful 'Lucene in Action' book
  * by Erik Hatcher and Otis Gospodnetic (https://www.manning.com/books/lucene-in-action-second-edition)
  *
- * June 25th, 2013: Updated for Lucene 4.3.1
- * requires a lucene-4.x.x.jar from http://lucene.apache.org
  */
 
 if (args.size() != 2) {
-    throw new Exception("Usage: groovy -cp lucene-4.3.1.jar Searcher <index dir> <query>")
+    throw new Exception("Usage: groovy -cp lucene-core-8.7.0.jar:lucene-queryparser-8.7.0.jar Searcher <index dir> <query>")
 }
 def indexDir = new File(args[0]) // Index directory create by Indexer
 def q = args[1] // Query string
@@ -44,10 +44,10 @@ if (!indexDir.exists() || !indexDir.directory) {
     throw new Exception("$indexDir does not exist or is not a directory")
 }
 
-def fsDir = DirectoryReader.open(FSDirectory.open(indexDir))
+def fsDir = DirectoryReader.open(FSDirectory.open(indexDir.toPath()))
 def is = new IndexSearcher(fsDir) // Open index
 
-def parser = new QueryParser(Version.LUCENE_43, "contents", new StandardAnalyzer(Version.LUCENE_43))
+def parser = new QueryParser("contents", new StandardAnalyzer())
 def query = parser.parse(q) // Parse query
 def start = new Date().time
 def hits = is.search(query, 10) // Search index
