@@ -46,7 +46,7 @@ sb = SwingBuilder.build() {
         slider = slider(value:5, fill:gb.HORIZONTAL, gridwidth:gb.REMAINDER, insets:[3,3,3,6] as Insets)
 
         panel()
-        checkBox = checkBox("Enbled", anchor:gb.WEST, gridwidth:gb.REMAINDER, insets:[3,3,3,6] as Insets)
+        checkBox = checkBox("Enabled", anchor:gb.WEST, gridwidth:gb.REMAINDER, insets:[3,3,3,6] as Insets)
 
         separator(fill:gb.HORIZONTAL, gridwidth:gb.REMAINDER)
 

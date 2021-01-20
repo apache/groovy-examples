@@ -30,7 +30,7 @@ Project   |  Description
 [AST Builder](src/main/groovy/astbuilder) | Example showing how to use the AstBuilder to add a public static void main(String[]) method to a class
 [Command Line Tools](src/main/groovy/commandLineTools) | 
 [Console](src/main/groovy/console) |
-[Groovy 2d](src/main/groovy/groovy2d) |
+[Groovy 2d](src/main/groovy/groovy2d) | Random patchwork graphics, using Java2D API graphics |
 [Injector](src/main/groovy/org/codehaus/groovy/grails/compiler/injection) | 
 [OSGi](src/main/groovy/osgi) | Sample code illustrating two different usages of [OSGi](http://www.osgi.org/) and Groovy
 [Search Engine](src/main/groovy/searchEngine) |
