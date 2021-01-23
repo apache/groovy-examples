@@ -37,10 +37,9 @@
  *    http://www.oreillynet.com/pub/a/network/2004/09/28/bloglines.html
  *
  * Requirements:
- *   - install Groovy as detailed at <http://groovy.codehaus.org/>.
- *   - put commons-httpclient-3.0-rc3.jar into GROOVY_HOME/lib
- *       see <http://jakarta.apache.org/commons/httpclient/>.
- *       note: this is currently designed for HttpClient2.x and not HttpClient3.x
+ *   - install Groovy as detailed at <http://groovy.apache.org/>.
+ *   - put httpcore-4.4.13.jar and httpclient-4.5.13.jar into GROOVY_HOME/lib
+ *       see <http://hc.apache.org/downloads.cgi>.
  *
  * To Launch:
  *   groovy StackOverflowClient.groovy
@@ -212,5 +211,5 @@ def parseOutline(parsedJSON, treeLevel) {
         }
     }
 
-    gui.show()
+    gui.setVisible(true)
 }

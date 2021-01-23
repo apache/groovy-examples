@@ -32,7 +32,7 @@ groovy BindingExample.groovy
 ```
 
 
-## BlogLinesClient Example (deprecated)
+## ~~BlogLinesClient Example~~ (deprecated)
 
 A complete, three-pane desktop RSS/Atom reader written in just 150 lines of code 
 with the Groovy programming language.
@@ -40,10 +40,15 @@ with the Groovy programming language.
 ## StackOverflowClient Example
 
 A three-pane desktop REST based Blog reader.  Provides a list of all topic
-tags used in SlackOverflow's blog along with an occurrence count.  
-When a tag is selected the set of blogs tagged with it are retrieved, 
-and the titles displayed.  Upon selection of a title the blog content is 
-displayed in the remaining window.
+tags used in SlackOverflow's blog along with an occurrence count.  When a tag is
+selected the set of blogs tagged with it are retrieved, and the titles displayed.
+Upon selection of a title the blog content is displayed in the remaining window.
+
+This example is dependent on the Apache http library.
+
+```bash
+groovy -cp libs/httpcore-4.4.13.jar:libs/httpclient-4.5.13.jar StackOverflowClient.groovy
+```
 
 ## ModelNode Example
 
