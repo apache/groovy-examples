@@ -52,5 +52,23 @@ groovy -cp libs/httpcore-4.4.13.jar:libs/httpclient-4.5.13.jar StackOverflowClie
 
 ## ModelNode Example
 
+A simple user interface illustrating updating a data model of an MVC pattern.
+The UI provides two buttons, __Submit__ and __Reset__.  Submit updates the
+underlying data model.  Reset updates the UI to reflect the currently 
+stored values within the data model.
+
+```bash
+groovy ModelNodeExample.groovy
+```
+
 ## RegexCoach Example
+
+## Widgets Example
+
+Builds an example window showing the various controls and dialog types
+available within the Swing interface.
+
+```bash
+groovy Widgets
+```
 
