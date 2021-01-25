@@ -22,7 +22,7 @@
  * Date: Apr 26, 2008
  * Time: 8:32:03 AM
  */
-package groovy.swing.greet
+package swing.greet
 
 import groovy.beans.Bindable
 import groovy.swing.SwingBuilder
@@ -45,6 +45,8 @@ class Greet {
     void startUp() {
         setAllowSelection(false)
         setAllowTweet(false)
+        def frame = view.greetFrame
+        frame.show()
         view.greetFrame.show()
         view.loginDialog.show()
     }

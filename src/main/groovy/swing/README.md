@@ -31,11 +31,68 @@ addition, there is a checkbox which when selected enables the button.
 groovy BindingExample.groovy
 ```
 
-
 ## ~~BlogLinesClient Example~~ (deprecated)
 
-A complete, three-pane desktop RSS/Atom reader written in just 150 lines of code 
-with the Groovy programming language.
+A complete, three-pane desktop RSS/Atom reader written in just 150 lines of code
+with the Groovy programming language.  The original server and protocol are no
+longer available.  ```StackOverflowClient.groovy``` implements the same concepts
+using a REST interface.
+
+## Caricature Example
+
+A simple user interface that displays a caricature of a face whose features may be
+manipulated with a set of graphic controls.  This example combines both java
+and groovy.
+
+```bash
+cd binding/caricature
+groovyc JCaricature.java
+groovy Caricature.groovy
+```
+
+## Greet Example
+
+The three files in this directory implement a simple user interface for accessing Twitter.  _Fails logging into Twitter, likely issues with
+changes to the Twitter interface._
+
+```bash
+cd greet
+groovyc TwitterAPI.groovy
+groovyc View.groovy
+groovy Greet.groovy
+```
+
+## ModelNode Example
+
+A simple user interface illustrating updating a data model of an MVC pattern.
+The UI provides two buttons, __Submit__ and __Reset__.  Submit updates the
+underlying data model.  Reset updates the UI to reflect the currently
+stored values within the data model.
+
+```bash
+groovy ModelNodeExample.groovy
+```
+
+## RegexCoach Example
+
+The RegexCoach consists of two examples.  Both implement a version of a Regular Expression Coach
+based on [Regex Coach](http://www.weitz.de/regex-coach) created Edmund Weitz. The first, ```RegexCoach.groovy```
+brings up a user interface allowing the user to type in a regex expression and some text.  The
+application attempts to parse the provided text using the regex expression.
+
+```bash
+groovy RegexCoach.groovy
+```
+
+The second application implements the exact same functionality but breaks the implementation into
+two different files, ```RegexCoachView.groovy``` and ```RegexCoachController.groovy``` where the
+View script contains the markup describing the View of a MVC pattern.  And, the Controller contains
+the controller logic.
+
+```bash
+groovyc RegexCoachView.groovy
+groovy RegexCoachController.groovy
+```
 
 ## StackOverflowClient Example
 
@@ -50,18 +107,19 @@ This example is dependent on the Apache http library.
 groovy -cp libs/httpcore-4.4.13.jar:libs/httpclient-4.5.13.jar StackOverflowClient.groovy
 ```
 
-## ModelNode Example
+## Timelog Example
 
-A simple user interface illustrating updating a data model of an MVC pattern.
-The UI provides two buttons, __Submit__ and __Reset__.  Submit updates the
-underlying data model.  Reset updates the UI to reflect the currently 
-stored values within the data model.
+A simple interface that implements a timer with a start and stop button.  
+Enter a client name, hit start, the timer starts.  When stopped the start timer,
+end time and duration are logged with the client name.  Multiple runs are
+logged.
 
 ```bash
-groovy ModelNodeExample.groovy
+cd timelog
+groovyc TimeLogView.groovy
+groovyc TimeLogModel.groovy
+groovy TimeLogMain.groovy
 ```
-
-## RegexCoach Example
 
 ## Widgets Example
 
@@ -71,4 +129,3 @@ available within the Swing interface.
 ```bash
 groovy Widgets
 ```
-
