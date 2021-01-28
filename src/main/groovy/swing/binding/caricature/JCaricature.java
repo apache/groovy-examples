@@ -42,7 +42,7 @@ import javax.swing.JPanel;
  * @author sky
  */
 public class JCaricature extends JPanel {
-    private Map/*<String,Image>*/ imageMap;
+    private Map<String,Image> imageMap;
 
     private boolean empty;
     private int mouthStyle;
@@ -55,7 +55,7 @@ public class JCaricature extends JPanel {
 
     public JCaricature() {
         if (imageMap == null) {
-            imageMap = new HashMap/*<String,Image>*/(1);
+            imageMap = new HashMap<>(1);
             for (int i = 0; i < 5; i++) {
                 getImage("face", i);
                 getImage("hair", i);
@@ -203,7 +203,7 @@ public class JCaricature extends JPanel {
 
     private void drawImage(Graphics g, String string, int i) {
         Image image = getImage(string, i);
-        g.drawImage(image, -image.getWidth(null) / 2, -image.getHeight(null) / 2, null);
+        g.drawImage(image, (int)(-image.getWidth(null) / 2), (int)(-image.getHeight(null) / 2), null);
     }
 
     private Image getImage(String key, int style) {
@@ -211,9 +211,11 @@ public class JCaricature extends JPanel {
         Image image = (Image) imageMap.get(imageName);
         if (image == null) {
             System.err.println("name=" + imageName);
-            URL imageLoc = getClass().getResource("resources/" + imageName);
-            image = new ImageIcon(imageLoc).getImage();
-            imageMap.put(imageName, image);
+            URL imageLoc = (URL)getClass().getClassLoader().getResource("resources/" + imageName);
+            if (imageLoc != null) {
+                image = new ImageIcon((URL) imageLoc).getImage();
+                imageMap.put(imageName, image);
+            }
         }
         return image;
     }

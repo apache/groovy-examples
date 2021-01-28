@@ -22,7 +22,7 @@
  * Date: Apr 25, 2008
  * Time: 9:47:20 PM
  */
-package groovy.swing.greet
+package swing.greet
 
 import groovy.beans.Bindable
 

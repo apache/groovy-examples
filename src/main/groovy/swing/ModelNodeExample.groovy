@@ -19,18 +19,20 @@
 package swing
 
 import groovy.swing.SwingBuilder
+
 import static javax.swing.WindowConstants.*
 import static java.awt.GridBagConstraints.*
 
-def bean = new ObservableMap([name:'Alice', phone:'719-555-1212', addr:'42 Other Way'])
+def model = new ObservableMap([name:'Alice', phone:'719-555-1212', addr:'42 Other Way'])
 
 SwingBuilder.build {
  frame = frame(
-       pack:true, 
+       pack:true,
        show:true,
        defaultCloseOperation:DISPOSE_ON_CLOSE)
  {
-  beanModel = model(bean, bind:false)
+
+  beanModel = bindProxy(bean(model), bind:false)
 
   gridBagLayout()
 
@@ -58,16 +60,16 @@ SwingBuilder.build {
             weightx:1,
             insets:[3,3,3,6])
 
-  button('Reset', actionPerformed:{beanModel.update()}, 
-                  constraints:gbc(gridwidth:2, 
-                                  anchor:EAST, 
-                                  weightx:1, 
+  button('Reset', actionPerformed:{beanModel.update()},
+                  constraints:gbc(gridwidth:2,
+                                  anchor:EAST,
+                                  weightx:1,
                                   insets:[9,0,0,6]))
-  button('Submit', 
+  button('Submit',
          insets:[9,0,0,0],
-         actionPerformed: { 
-             beanModel.reverseUpdate()
-             output.text = ("name = '$bean.name'\nphone = '$bean.phone'\naddr = '$bean.addr'\n\n")
+         actionPerformed: {
+          beanModel.reverseUpdate()
+          output.text = ("name = '$model.name'\nphone = '$model.phone'\naddr = '$model.addr'\n\n")
          })
 
   separator(gridwidth:REMAINDER,
@@ -77,7 +79,7 @@ SwingBuilder.build {
         gridwidth:REMAINDER,
         anchor:WEST,
         insets:[3,6,3,6])
-  scrollPane(preferredSize:[100, 100], 
+  scrollPane(preferredSize:[100, 100],
              gridwidth:REMAINDER,
              fill:BOTH,
              weighty:1,
