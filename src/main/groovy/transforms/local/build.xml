@@ -20,15 +20,18 @@
 
 -->
 <project name="groovy-local-ast-transformation-example" default="compile-transform">
+    <property environment = "env"/>
+    <path id="build.path">
+        <fileset dir="${env.CLASSPATH}" includes="groovy-*.jar"/>
+    </path>
 
     <!-- necessary groovy jars are assumed to be on your classpath. -->
-    <taskdef name="groovyc" classname="org.codehaus.groovy.ant.Groovyc" />
+    <taskdef name="groovyc" classpathref="build.path" classname="org.codehaus.groovy.ant.Groovyc" />
     
     
     <target name="init" description="cleanup old class files">
         <delete dir="examples"/>
     </target>
-
     <target name="compile-transform" depends="init" description="Compiles the AST Transformation">
     
         <groovyc destdir="."
