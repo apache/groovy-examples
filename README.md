@@ -33,7 +33,7 @@ Project   |  Description
 [Groovy 2d](src/main/groovy/groovy2d) |
 [Injector](src/main/groovy/org/codehaus/groovy/grails/compiler/injection) | 
 [OSGi](src/main/groovy/osgi) | Sample code illustrating two different usages of [OSGi](http://www.osgi.org/) and Groovy
-[Search Engine](src/main/groovy/searchEngine) |
+[Search Engine](src/main/groovy/searchEngine) | A pair of programs illustrating indexing and searching text files with [Lucene](http://lucene.apache.org) and Groovy
 [Swing](src/main/groovy/swing) |
 [Transforms](src/main/groovy/transforms) |
 [Web Apps](src/main/groovy/webapps) |

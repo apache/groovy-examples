@@ -16,6 +16,8 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
+package searchEngine
+
 import org.apache.lucene.analysis.standard.StandardAnalyzer
 import org.apache.lucene.document.Document
 import org.apache.lucene.document.Field
@@ -25,6 +27,8 @@ import org.apache.lucene.index.IndexWriterConfig
 import org.apache.lucene.store.FSDirectory
 import org.apache.lucene.document.TextField
 import org.apache.lucene.document.StringField
+
+import java.nio.file.FileSystems
 import static org.apache.lucene.document.Field.Store.*
 
 /**
@@ -34,14 +38,21 @@ import static org.apache.lucene.document.Field.Store.*
  * based on examples in the wonderful 'Lucene in Action' book
  * by Erik Hatcher and Otis Gospodnetic (https://www.manning.com/books/lucene-in-action-second-edition)
  *
- * June 25th, 2013: Updated for Lucene 4.3.1
- * requires a lucene-4.3.x.jar from http://lucene.apache.org
  */
 
 if (args.size() != 2 ) {
-    throw new Exception("Usage: groovy -cp lucene-1.4.3.jar Indexer <index dir> <data dir>")
+    throw new Exception("Usage: groovy -cp lucene-8.7.0.jar Indexer <index dir> <data dir>")
 }
-def indexDir = FSDirectory.open(new File(args[0])) // Create Lucene index in this directory
+
+FSDirectory indexDir;
+
+try {
+    def paths = FileSystems.getDefault().getPath(args[0]);
+    indexDir = FSDirectory.open(paths); // Create Lucene index in this directory
+} catch (Exception e) {
+    println(" Exception ${e.getMessage()} when accessing ${args[0]}")
+}
+
 def dataDir = new File(args[1]) // Index files in this directory
 
 def start = new Date().time
@@ -54,7 +65,7 @@ def index(indexDir, dataDir) {
     if (!dataDir.exists() || !dataDir.directory) {
         throw new IOException("$dataDir does not exist or is not a directory")
     }
-    def config = new IndexWriterConfig(Version.LUCENE_43, new StandardAnalyzer(Version.LUCENE_43))
+    def config = new IndexWriterConfig(new StandardAnalyzer())
     def writer = new IndexWriter(indexDir, config) // Create Lucene index
 
     dataDir.eachFileRecurse {
@@ -62,7 +73,7 @@ def index(indexDir, dataDir) {
             indexFile(writer,it)
         }
     }
-    def numIndexed = writer.numDocs()
+    def numIndexed = writer.numRamDocs()
     writer.close() // Close index
     return numIndexed
 }
